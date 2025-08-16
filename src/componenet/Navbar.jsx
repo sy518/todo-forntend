@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -15,7 +14,7 @@ function Navbar() {
       <nav className=" justify-between flex">
         <div className="flex">
           <h1 className="text-2xl text-amber-800 m-2 uppercase font-bold">
-           ToDo
+            My Portfolio
           </h1>
         </div>
         <div className="">
@@ -46,13 +45,20 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to="/Todo"
+                to="/profile"
                 className="relative text-[15px]   hover:text-amber-600 mr-[30px] no-underline "
               >
-               ToDo
+                Profile
               </Link>
             </li>
-            
+            <li>
+              <Link
+                to="/portfolio"
+                className="relative text-[15px]   hover:text-amber-600 mr-[30px] no-underline "
+              >
+                Portfolio
+              </Link>
+            </li>
           </ul>
           <button
             onClick={toggle}
@@ -84,11 +90,15 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/TOdo" className="border-t border-gray-700 mb-3">
-               ToDO
+              <Link to="/profile" className="border-t border-gray-700 mb-3">
+                profile
               </Link>
             </li>
-           
+            <li>
+              <Link to="/portfolio" className="border-t border-gray-700 mb-3">
+                portfolio
+              </Link>
+            </li>
           </ul>
         </div>
       )}

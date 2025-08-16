@@ -12,11 +12,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Left side: Text */}
             <div className="flex flex-col justify-center items-center text-center md:items-start md:text-left">
-              <h2 className="text-2xl font-bold p-2">The TODO APP</h2>
+              <h2 className="text-2xl font-bold p-2">The PORTFOLIO APP</h2>
               <p className="text-lg px-4 md:px-0 max-w-md">
-                Todo App – A simple and efficient task management tool built
-                with React. Users can add, edit, delete, and mark tasks as
-                complete to stay organized and boost productivity.
+                Portfolio App – A personal portfolio website built with React,
+                designed to showcase projects, skills, and experience in a clean
+                and responsive layout. It highlights my journey as a developer
+                and provides an easy way for others to explore my work.
               </p>
               <button className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md">
                 <Link to="/Signup">Signup Now!</Link>

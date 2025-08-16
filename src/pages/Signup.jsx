@@ -1,64 +1,63 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../componenet/Navbar';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../componenet/Navbar";
 
-function Signup () {
-            const navigate = useNavigate();
-    const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors, isSubmitting },
-    } = useForm();
+function Signup() {
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-    const delay = (d) => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, d * 1000);
-      });
-    };
+  const delay = (d) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, d * 1000);
+    });
+  };
 
-     const onSubmit = async (data) => {
-      console.log("Sending signup data:", data);
+  const onSubmit = async (data) => {
+    console.log("Sending signup data:", data);
 
-       // await delay(2) // simulating network delay
-       let r = await fetch(
-         "todo-backend-production-a956.up.railway.app/api/auth/signup",
-         {
-           method: "POST",
-           headers: {
-             "Content-Type": "application/json",
-           },
-           body: JSON.stringify(data),
-         }
-       );
-       let res = await r.text();
-       console.log(data, res);
-        navigate("/Login");
-        alert("Signup successful! Please login.");
-     };
-    
+    // await delay(2) // simulating network delay
+    let r = await fetch(
+      "todo-backend-production-a956.up.railway.app/api/auth/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    let res = await r.text();
+    console.log(data, res);
+    navigate("/Login");
+    alert("Signup successful! Please login.");
+  };
 
-     const handleSignup = async (e) => {
-       e.preventDefault();
-       const res = await fetch("/api/auth/signup", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify(signupData),
-       });
-       const data = await res.json();
-       alert(data.message);
-     };
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signupData),
+    });
+    const data = await res.json();
+    alert(data.message);
+  };
   return (
     <>
-    <Navbar/>
-    <div className="container min-h-screen bg-gray-100 flex items-center justify-center">
+      <Navbar />
+      <div className="container min-h-screen bg-gray-100 flex items-center justify-center">
         <div
           className="transition-transform duration-500 hover:-rotate-x-3 hover:-rotate-y-3 hover:scale-95 
           bg-white shadow-xl p-10 rounded-2xl w-96"
-          >
+        >
           {isSubmitting && <div>Loading...</div>}
           <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
             signup form
@@ -117,7 +116,7 @@ function Signup () {
               type="submit"
               value="Submit"
               className="w-full bg-amber-500 text-white p-3 rounded-md font-semibold hover:bg-amber-600"
-            /> 
+            />
             {errors.myform && (
               <div className="red">{errors.myform.message}</div>
             )}
@@ -127,8 +126,8 @@ function Signup () {
           </form>
         </div>
       </div>
-      </>
-  )
+    </>
+  );
 }
 
-export default Signup
+export default Signup;
